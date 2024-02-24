@@ -15,7 +15,7 @@ class ProductController extends BaseController
 {
     public function index()
     {
-        $product = Product::all();
+        $product = Product::orderBy("id","desc")->paginate(10);
         return $this->sendResponse($product, 'Product Lists.');
     }
 

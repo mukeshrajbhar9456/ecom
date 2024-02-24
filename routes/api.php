@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\Admin\ProductController;
 use App\Http\Controllers\API\Admin\UserController;
+use App\Http\Controllers\API\user\ProductUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,15 @@ Route::controller(RegisterController::class)->group(function(){
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+// user product list
+
+Route::get('', [ProductUserController::class, 'index']);
+Route::get('/{id}', [ProductUserController::class, 'details']);
+
+
+
+
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('admin/product/index', [ProductController::class, 'index']);

@@ -15,7 +15,7 @@ class UserController extends BaseController
 {
     public function index()
     {
-        $list = User::all();
+        $list = User::orderBy("id","desc")->paginate(10);
         return $this->sendResponse($list, 'User Lists.');
     }
 

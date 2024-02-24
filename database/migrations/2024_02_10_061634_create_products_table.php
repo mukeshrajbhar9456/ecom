@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->decimal('price', 8, 2);
-            $table->decimal('discount_percentage', 5, 2);
+            $table->decimal('discount_percentage', 5, 2)->nullable();
             $table->unsignedInteger('rating')->default(0);
             $table->unsignedInteger('stock')->default(0);
             $table->string('brand');
