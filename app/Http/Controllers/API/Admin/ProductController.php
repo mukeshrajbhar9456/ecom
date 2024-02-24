@@ -108,4 +108,15 @@ class ProductController extends BaseController
             return $this->sendError('Error occurred while Delete product.');
         }
     }
+
+    public function show($id)
+    {
+        $product = Product::find($id);
+
+        if ($product) {
+            return $this->sendResponse($product, 'Product Details.');
+        } else {
+            return $this->sendError('Error occurred while creating product.');
+        }
+    }
 }
